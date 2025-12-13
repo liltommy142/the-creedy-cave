@@ -66,6 +66,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (moveAction == null) return;
+        
+        // Disable movement during combat
+        if (CombatManager.Instance != null && CombatManager.Instance.IsInCombat)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
         // Read movement input
         Vector2 moveInput = moveAction.ReadValue<Vector2>();

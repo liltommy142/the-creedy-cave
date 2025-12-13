@@ -1,13 +1,14 @@
 using UnityEngine;
 using System;
 
-public class PlayerHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 2000f;
+    [SerializeField] private float maxHealth = 1000f;
     [SerializeField] private float currentHealth;
-    [SerializeField] private float attackDamage = 150f;
+    [SerializeField] private float attackDamage = 100f;
     
     public event Action<float, float> OnHealthChanged; // currentHealth, maxHealth
+    public event Action OnDeath;
     
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth;
@@ -30,20 +31,10 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     
-    public void TakeHalfDamage()
-    {
-        TakeDamage(0.5f);
-    }
-    
     public void Heal(float amount)
     {
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
-    }
-    
-    public void HealHalf()
-    {
-        Heal(0.5f);
     }
     
     public void SetMaxHealth(float newMaxHealth)
@@ -55,8 +46,8 @@ public class PlayerHealth : MonoBehaviour
     
     private void Die()
     {
-        Debug.Log("Player died!");
-        // Add death logic here (restart, game over, etc.)
+        OnDeath?.Invoke();
+        Debug.Log("Enemy died!");
     }
 }
 

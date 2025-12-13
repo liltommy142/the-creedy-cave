@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
     
     private SpriteRenderer spriteRenderer;
     private Transform playerTransform;
+    private EnemyHealth enemyHealth;
     
     void Start()
     {
@@ -13,6 +14,13 @@ public class EnemyController : MonoBehaviour
         if (spriteRenderer == null)
         {
             Debug.LogWarning("SpriteRenderer not found on Enemy. Sprite flipping will not work.");
+        }
+        
+        // Get or add EnemyHealth component
+        enemyHealth = GetComponent<EnemyHealth>();
+        if (enemyHealth == null)
+        {
+            enemyHealth = gameObject.AddComponent<EnemyHealth>();
         }
         
         // Find player by tag
@@ -29,6 +37,12 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        // Don't update if in combat
+        if (CombatManager.Instance != null && CombatManager.Instance.IsInCombat)
+        {
+            return;
+        }
+        
         if (playerTransform == null || spriteRenderer == null) return;
         
         // Calculate distance to player
@@ -51,6 +65,47 @@ public class EnemyController : MonoBehaviour
                 // Player is to the right - unflip sprite
                 spriteRenderer.flipX = false;
             }
+        }
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null && enemyHealth != null)
+            {
+                EnsureCombatManagerExists();
+                if (CombatManager.Instance != null)
+                {
+                    CombatManager.Instance.StartCombat(playerHealth, enemyHealth);
+                }
+            }
+        }
+    }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null && enemyHealth != null)
+            {
+                EnsureCombatManagerExists();
+                if (CombatManager.Instance != null)
+                {
+                    CombatManager.Instance.StartCombat(playerHealth, enemyHealth);
+                }
+            }
+        }
+    }
+    
+    void EnsureCombatManagerExists()
+    {
+        if (CombatManager.Instance == null)
+        {
+            GameObject combatManagerObj = new GameObject("CombatManager");
+            combatManagerObj.AddComponent<CombatManager>();
         }
     }
 }
