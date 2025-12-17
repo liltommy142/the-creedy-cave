@@ -1,0 +1,65 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class CellController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+{
+    public bool selected = false;
+    public GameObject highlight;
+    public Image itemIcon;
+    public WeaponData currentItem;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        if (highlight != null)
+            highlight.SetActive(false);
+    }
+
+    public void SetHighlight(bool show)
+    {
+        if (highlight != null)
+            highlight.SetActive(show);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        selected = true;
+        animator.SetBool("selected", true);
+        GameController.Instance.SetHoverCursor();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        selected = false;
+        animator.SetBool("selected", false);
+        GameController.Instance.SetDefaultCursor();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        InventoryController.Instance.SelectCell(this);
+    }
+
+    public void SetItem(WeaponData weapon)
+    {
+        currentItem = weapon;
+        if (itemIcon != null && weapon != null)
+        {
+            itemIcon.sprite = weapon.icon;
+            itemIcon.color = Color.white;
+            itemIcon.enabled = true;
+        }
+    }
+
+    public void ClearItem()
+    {
+        currentItem = null;
+        if (itemIcon != null)
+        {
+            itemIcon.sprite = null;
+            itemIcon.enabled = false;
+        }
+    }
+}
