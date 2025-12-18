@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCollider;
     private InputAction moveAction;
 
+    public CoinManager coinManager;
+
     void Start()
     {
         // Get or add Rigidbody2D component
@@ -103,6 +105,26 @@ public class PlayerController : MonoBehaviour
         if (moveAction != null)
         {
             moveAction.Disable();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check for coin collection
+        if (other.CompareTag("Coin"))
+        {
+            // Increment coin count in CoinManager
+            if (coinManager != null)
+            {
+                coinManager.coinCount++;
+            }
+            else
+            {
+                Debug.LogWarning("CoinManager reference is not set in PlayerController.");
+            }
+
+            // Destroy the collected coin
+            Destroy(other.gameObject);
         }
     }
 }
