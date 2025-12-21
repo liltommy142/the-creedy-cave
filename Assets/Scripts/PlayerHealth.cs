@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     public float MaxHealth => maxHealth;
     public float AttackDamage => attackDamage;
     
+    private bool isDead = false;
+    
     void Start()
     {
         currentHealth = maxHealth;
@@ -46,6 +48,8 @@ public class PlayerHealth : MonoBehaviour
     
     public void TakeDamage(float damage)
     {
+        if (isDead) return; // Không nhận damage nếu đã chết
+        
         currentHealth = Mathf.Max(0, currentHealth - damage);
         OnDamageTaken?.Invoke(this, damage);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
@@ -86,8 +90,36 @@ public class PlayerHealth : MonoBehaviour
     
     private void Die()
     {
+        if (isDead) return; // Tránh gọi nhiều lần
+        
+        isDead = true;
         Debug.Log("Player died!");
-        // Add death logic here (restart, game over, etc.)
+        
+        // Gọi PlayerDeath để xử lý death sequence (animation + death screen)
+        PlayerDeath playerDeath = GetComponent<PlayerDeath>();
+        if (playerDeath != null)
+        {
+            playerDeath.HandleDeath();
+        }
+        else
+        {
+            Debug.LogWarning("PlayerHealth: Không tìm thấy PlayerDeath component! Vui lòng thêm PlayerDeath vào player GameObject.");
+            // Fallback: gọi trực tiếp DeathManager nếu không có PlayerDeath
+            if (DeathManager.Instance != null)
+            {
+                DeathManager.Instance.ShowDeathScreen();
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reset death state (dùng khi restart)
+    /// </summary>
+    public void ResetDeath()
+    {
+        isDead = false;
+        currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 }
 
