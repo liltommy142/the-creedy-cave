@@ -59,7 +59,8 @@ public class EnemyController : MonoBehaviour
         if (context.IsDead)
         {
             context.Movement = Vector2.zero;
-            animationController.UpdateAnimation(context.IsDead, context.IsHurt, context.IsAttacking, context.Movement);
+            // Handle death animation to ensure it plays once and stops at final frame
+            animationController.HandleDeathAnimation();
             return;
         }
 
