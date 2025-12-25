@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string walkAnimationName = "Walk";
     [SerializeField] private string attack01AnimationName = "Attack01";
     [SerializeField] private string hurtAnimationName = "Hurt";
+    [SerializeField] private float footstepCooldown = 0.3f; // Time between footstep sounds
     
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -19,8 +20,11 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction attackAction;
     private PlayerHealth playerHealth;
+    private AudioSource audioSource;
+    private AudioClip[] footstepClips;
     private string currentAnimationState = "";
     private float lastAttackTime = 0f;
+    private float lastFootstepTime = 0f;
     private bool isAttacking = false;
     private bool isHurt = false;
     private float previousHealth = 0f;
@@ -77,6 +81,34 @@ public class PlayerController : MonoBehaviour
             previousHealth = playerHealth.CurrentHealth;
             playerHealth.OnHealthChanged += OnHealthChanged;
         }
+
+        // Get or add AudioSource component for footstep sounds
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+
+        // Load footstep sound clips
+        #if UNITY_EDITOR
+        footstepClips = new AudioClip[]
+        {
+            UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Assets/Sound/16_human_walk_stone_1.wav"),
+            UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Assets/Sound/16_human_walk_stone_2.wav"),
+            UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Assets/Sound/16_human_walk_stone_3.wav")
+        };
+        #else
+        // At runtime, load from Resources folder (files need to be moved to Resources/Assets/Sound/ for this to work)
+        // Alternatively, assign clips in inspector via SerializeField
+        footstepClips = new AudioClip[]
+        {
+            Resources.Load<AudioClip>("Assets/Sound/16_human_walk_stone_1"),
+            Resources.Load<AudioClip>("Assets/Sound/16_human_walk_stone_2"),
+            Resources.Load<AudioClip>("Assets/Sound/16_human_walk_stone_3")
+        };
+        #endif
 
         // Get or add BoxCollider2D and adjust size for narrow passages
         boxCollider = GetComponent<BoxCollider2D>();
@@ -202,6 +234,21 @@ public class PlayerController : MonoBehaviour
         
         // Check if player is moving
         bool isMoving = moveInput.magnitude > 0.1f;
+        
+        // Play footstep sounds when moving
+        if (isMoving && !isHurt && !isAttacking && audioSource != null && footstepClips != null && footstepClips.Length > 0)
+        {
+            if (Time.time - lastFootstepTime >= footstepCooldown)
+            {
+                // Pick a random footstep sound
+                AudioClip randomFootstep = footstepClips[Random.Range(0, footstepClips.Length)];
+                if (randomFootstep != null)
+                {
+                    audioSource.PlayOneShot(randomFootstep);
+                    lastFootstepTime = Time.time;
+                }
+            }
+        }
         
         // Play appropriate animation and ensure it loops (even if Animation Clip doesn't have loop enabled)
         if (animator != null)
