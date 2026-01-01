@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hat3
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   itemName: Hat2
-  icon: {fileID: -3249380567520569279, guid: 4b6fa4e172bc843b5aef51db5d433452, type: 3}
+  icon: {fileID: -3249380567520569279, guid: ab19829ef0c64487eb060e96aba175f0, type: 3}
   itemType: 2
   damage: 0
   attackSpeed: 0

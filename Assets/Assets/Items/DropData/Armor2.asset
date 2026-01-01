@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4cb0241df9f4b839a5f423b172c24b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cee3c2bdd2d64522a6d0364a71bbdf4, type: 3}
   m_Name: Armor2
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  itemName: Armor2
-  icon: {fileID: 7487477616773180231, guid: ab19829ef0c64487eb060e96aba175f0, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDropData
   itemType: 1
-  damage: 0
-  attackSpeed: 0
-  defense: 40
-  sellPrice: 1
+  spawnRate: 1
+  itemData: {fileID: 11400000, guid: 76375b86abae64aa6a8b1f66624c4f83, type: 2}
+  coinValue: 0

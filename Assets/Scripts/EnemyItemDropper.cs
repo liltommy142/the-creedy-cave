@@ -191,12 +191,16 @@ public class EnemyItemDropper : MonoBehaviour
             Debug.LogWarning($"[EnemyItemDropper] ItemData {itemData.itemName} has no icon sprite!");
         }
         
+        // Apply sprite size after itemData is set
+        pickupable.ApplySpriteSize();
+        
         // Configure collider
         collider.isTrigger = true;
         collider.radius = 0.5f; // Default radius, can be adjusted
         
         // Set sorting layer (matching Pickupable component behavior)
         spriteRenderer.sortingLayerName = "Player";
+        spriteRenderer.sortingOrder = 1;
         
         Debug.Log($"[EnemyItemDropper] ✓ Spawned item pickup: {itemData.itemName} (Type: {itemData.itemType}) at {position}");
     }

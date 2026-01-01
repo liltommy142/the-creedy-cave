@@ -4735,6 +4735,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9006608071438916849, guid: eb3778648a046406b8ddfa26054dcce5, type: 3}
   m_PrefabInstance: {fileID: 4342338603419782585}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &161210814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6139187240555934928, guid: 113a2e1e8612646bd9ccfb474904aaf9, type: 3}
+  m_PrefabInstance: {fileID: 1037782091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &186439970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3928231971992827772, guid: bd5986b1bb75a624baf25d36c38bb26f, type: 3}
@@ -5086,10 +5091,10 @@ MonoBehaviour:
   cellSize: 0
   spacing: 0
   weaponCellGameObject: {fileID: 1864683654}
-  armorCellGameObject: {fileID: 0}
-  hatCellGameObject: {fileID: 0}
-  glovesCellGameObject: {fileID: 0}
-  shoesCellGameObject: {fileID: 0}
+  armorCellGameObject: {fileID: 1070218205}
+  hatCellGameObject: {fileID: 161210814}
+  glovesCellGameObject: {fileID: 1734511116}
+  shoesCellGameObject: {fileID: 1190258282}
   useButtonGameObject: {fileID: 786052388}
   dropButtonGameObject: {fileID: 780980703}
 --- !u!4 &225952654 stripped
@@ -5328,6 +5333,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 303823582}
+    - target: {fileID: 5673487430457263555, guid: 1863c1069f54142f38ee285af1f2ad0b, type: 3}
+      propertyPath: possibleDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673487430457263555, guid: 1863c1069f54142f38ee285af1f2ad0b, type: 3}
+      propertyPath: 'possibleDrops.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1acd5cd8163714403a87d27be523e2f0, type: 2}
     - target: {fileID: 5814202695872938091, guid: 1863c1069f54142f38ee285af1f2ad0b, type: 3}
       propertyPath: m_Name
       value: Greatsword Skeleton
@@ -7468,6 +7481,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 227391554}
+    - target: {fileID: 5673487430457263555, guid: 5cab6ac6ab7d7434fbd2b2b1467e8f16, type: 3}
+      propertyPath: 'possibleDrops.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 12bd37674e4074329a90eb3ae3f84e1b, type: 2}
     - target: {fileID: 5814202695872938091, guid: 5cab6ac6ab7d7434fbd2b2b1467e8f16, type: 3}
       propertyPath: m_Name
       value: Werewolf
@@ -40291,6 +40308,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 688793681}
+    - target: {fileID: 5673487430457263555, guid: 6153bbdf1588c44c1a29b148b518258c, type: 3}
+      propertyPath: possibleDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673487430457263555, guid: 6153bbdf1588c44c1a29b148b518258c, type: 3}
+      propertyPath: 'possibleDrops.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8dc509106f1bf49d080913c00ff90d4d, type: 2}
     - target: {fileID: 5814202695872938091, guid: 6153bbdf1588c44c1a29b148b518258c, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -41913,6 +41938,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1562193730}
+    - target: {fileID: 5673487430457263555, guid: dd57368a767dc4aa0aff4866ad1e54f6, type: 3}
+      propertyPath: possibleDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673487430457263555, guid: dd57368a767dc4aa0aff4866ad1e54f6, type: 3}
+      propertyPath: 'possibleDrops.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a260262d38f74a2a832ae5dccb78991, type: 2}
     - target: {fileID: 5814202695872938091, guid: dd57368a767dc4aa0aff4866ad1e54f6, type: 3}
       propertyPath: m_Name
       value: Armored Orc
@@ -42381,6 +42414,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d3e04bd06bc4743812ae9c40775d79, type: 3}
+--- !u!1 &1070218205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6139187240555934928, guid: 113a2e1e8612646bd9ccfb474904aaf9, type: 3}
+  m_PrefabInstance: {fileID: 695354852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1071316217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43320,6 +43358,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2093476915158154742, guid: 64c6f619403156844b1037fc720bf113, type: 3}
   m_PrefabInstance: {fileID: 1186838024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1190258282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6139187240555934928, guid: 113a2e1e8612646bd9ccfb474904aaf9, type: 3}
+  m_PrefabInstance: {fileID: 1829881838}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1190924481
 GameObject:
@@ -49150,6 +49193,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1829950816}
+    - target: {fileID: 5673487430457263555, guid: 688113c9a39364815955205390ffe608, type: 3}
+      propertyPath: 'possibleDrops.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: afbbeae7507dd47f99a9bf487d9c3b41, type: 2}
     - target: {fileID: 5814202695872938091, guid: 688113c9a39364815955205390ffe608, type: 3}
       propertyPath: m_Name
       value: Werebear
@@ -49872,6 +49919,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd5986b1bb75a624baf25d36c38bb26f, type: 3}
+--- !u!1 &1734511116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6139187240555934928, guid: 113a2e1e8612646bd9ccfb474904aaf9, type: 3}
+  m_PrefabInstance: {fileID: 1722658907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1736676552
 GameObject:
   m_ObjectHideFlags: 0
@@ -54672,6 +54724,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 688793681}
+    - target: {fileID: 5673487430457263555, guid: 6153bbdf1588c44c1a29b148b518258c, type: 3}
+      propertyPath: possibleDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673487430457263555, guid: 6153bbdf1588c44c1a29b148b518258c, type: 3}
+      propertyPath: 'possibleDrops.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8dc509106f1bf49d080913c00ff90d4d, type: 2}
     - target: {fileID: 5814202695872938091, guid: 6153bbdf1588c44c1a29b148b518258c, type: 3}
       propertyPath: m_Name
       value: Enemy
