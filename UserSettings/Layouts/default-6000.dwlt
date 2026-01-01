@@ -129,7 +129,7 @@ MonoBehaviour:
   - {fileID: 18}
   - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -274,12 +274,12 @@ MonoBehaviour:
     height: 594.4
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -366,7 +366,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Images
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -376,16 +376,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Images
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Study\HCMUS-Game-Development\proj\the-creedy-cave
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 04cf0000
-    m_LastClickedID: 52996
-    m_ExpandedIDs: 0000000086ce000088ce00008ace000000ca9a3b
+    scrollPos: {x: 0, y: 35.599976}
+    m_SelectedIDs: 96ce0000
+    m_LastClickedID: 52886
+    m_ExpandedIDs: 0000000096ce000098ce00009ace000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -414,7 +414,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000086ce000088ce00008ace0000
+    m_ExpandedIDs: 0000000096ce000098ce00009ace0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -443,7 +443,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000008da0000000000007e02000054cd00000e48e1ffb2050100ba050100822ce1ff
+    m_ExpandedInstanceIDs: c623000008da00007e02000054cd00000e48e1ffb2050100ba050100822ce1ff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -560,9 +560,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c0cc0000
-      m_LastClickedID: 52416
-      m_ExpandedIDs: a2eeffff02fbffffc4cb00003ecc0000
+      m_SelectedIDs: 04a1eeff
+      m_LastClickedID: -1138428
+      m_ExpandedIDs: fca3eefff4abeeff2ee6effffcf0efffc6f5efff94fcefffc4f2f3ff489af8ffeea7f9ffc6a1feff9caafeff0eb5feffc6bcfeffd8cdfeff86d6feff10fafeffe8ecffff5aedffffe8efffff10f7ffff02fbffffa4cf0000b4f60000b8f60000d0f60000ecf60000f0f60000faf6000018300100c230010040680100446801005c680100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1074,10 +1074,10 @@ MonoBehaviour:
       displayed: 0
       id: Scene View/Open Tile Palette
       index: 4
-      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":24.799999237060548},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       layout: 4
@@ -1152,9 +1152,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 476.0878, y: 333.64044, z: -4.664524}
+    m_Target: {x: -1.889771, y: -8.668135, z: -0.10758953}
     speed: 2
-    m_Value: {x: 476.0878, y: 333.64044, z: -4.664524}
+    m_Value: {x: -1.889771, y: -8.668135, z: -0.10758953}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1204,9 +1204,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 477.46585
+    m_Target: 11.624965
     speed: 2
-    m_Value: 477.46585
+    m_Value: 11.624965
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1309,7 +1309,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
